@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { ReactNode } from "react";
 import "./globals.css";
 import Header from "@/components/Header/Header";
@@ -7,15 +6,17 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 
 interface Props {
   children: ReactNode;
+  modal: ReactNode;
 }
 
-export default function RootLayout({ children }: Props) {
+export default function RootLayout({ children, modal }: Props) {
   return (
     <html lang="en">
       <body>
         <TanStackProvider>
           <Header />
           {children}
+          {modal}
           <Footer />
         </TanStackProvider>
       </body>
