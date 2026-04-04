@@ -1,13 +1,11 @@
-export type Note = {
-  id: string;
-  title: string;
-  content: string;
-  tag: string;
-  createdAt: string;
-  updatedAt: string;
-};
+export async function deleteNote(id: string) {
+  const response = await fetch(`/api/notes/${id}`, {
+    method: "DELETE",
+  });
 
-export type NoteListResponse = {
-  notes: Note[];
-  totalPages: number;
-};
+  if (!response.ok) {
+    throw new Error("Failed to delete note");
+  }
+
+  return response.json();
+}

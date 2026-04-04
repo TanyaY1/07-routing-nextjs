@@ -1,11 +1,13 @@
-import NotePreview from "@/components/NotePreview/NotePreview";
+import NoteDetailsClient from "./NoteDetails.client";
 
 type Props = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
-export default function NoteDetailsPage({ params }: Props) {
-  return <NotePreview id={params.id} />;
+export default async function NoteDetailsPage({ params }: Props) {
+  const { id } = await params;
+
+  return <NoteDetailsClient id={id} />;
 }
