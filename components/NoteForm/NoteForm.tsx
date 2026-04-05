@@ -48,7 +48,7 @@ export default function NoteForm({ onClose }: NoteFormProps) {
   const handleSubmit = (
     values: NoteFormValues,
     actions: FormikHelpers<NoteFormValues>
-  ) => {
+  ): void => {
     mutate(
       {
         title: values.title.trim(),
@@ -114,7 +114,11 @@ export default function NoteForm({ onClose }: NoteFormProps) {
             Cancel
           </button>
 
-          <button className={css.submitButton} type="submit" disabled={isPending}>
+          <button
+            className={css.submitButton}
+            type="submit"
+            disabled={isPending}
+          >
             {isPending ? "Creating..." : "Create"}
           </button>
         </div>
