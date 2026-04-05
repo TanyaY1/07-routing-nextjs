@@ -1,13 +1,9 @@
-type Props = {
-  children: React.ReactNode;
-  modal: React.ReactNode;
-};
+import type { ReactNode } from "react";
 
-export default function NotesLayout({ children, modal }: Props) {
-  return (
-    <>
-      {children}
-      {modal}
-    </>
-  );
+interface Props {
+  children: ReactNode;
+}
+
+export default function NotesLayout({ children }: Props) {
+  return <>{children}</>;
 }
